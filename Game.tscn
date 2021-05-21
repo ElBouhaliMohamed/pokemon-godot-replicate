@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Entitys/Town.tscn" type="PackedScene" id=1]
+[ext_resource path="res://GUI/Gui.gd" type="Script" id=2]
+[ext_resource path="res://GUI/MessageBox.gd" type="Script" id=3]
+[ext_resource path="res://GUI/MainMenu.gd" type="Script" id=4]
+[ext_resource path="res://GUI/Options.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Menu/Frames/choice 1.png" type="Texture" id=6]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 48, 48 )
+margin_left = 20.0
+margin_right = 20.0
+margin_top = 20.0
+margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 48, 48 )
+margin_left = 20.0
+margin_right = 20.0
+margin_top = 20.0
+margin_bottom = 20.0
+
+[node name="Game" type="Node2D"]
+
+[node name="Town" parent="." instance=ExtResource( 1 )]
+
+[node name="Gui" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="MessageBox" type="Panel" parent="Gui"]
+margin_left = -384.0
+margin_top = 144.0
+margin_right = 256.0
+margin_bottom = 240.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Gui/MessageBox"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 624.0
+margin_bottom = 80.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "ABCD"
+
+[node name="Options" type="Panel" parent="Gui"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenu" type="Panel" parent="Gui"]
+visible = false
+margin_left = 112.0
+margin_top = -112.0
+margin_right = 256.0
+margin_bottom = 240.0
+custom_styles/panel = SubResource( 2 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

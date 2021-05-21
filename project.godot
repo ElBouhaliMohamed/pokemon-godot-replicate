@@ -10,24 +10,34 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node",
+"class": "Command",
+"language": "GDScript",
+"path": "res://Events/Commands/Command.gd"
+}, {
+"base": "Node",
 "class": "Component",
 "language": "GDScript",
-"path": "res://Component.gd"
+"path": "res://Components/Component.gd"
 }, {
 "base": "Node2D",
 "class": "Entity",
 "language": "GDScript",
-"path": "res://Entity.gd"
+"path": "res://Entitys/Entity.gd"
 }, {
-"base": "Area2D",
+"base": "Node",
 "class": "Event",
 "language": "GDScript",
 "path": "res://Events/Event.gd"
 }, {
+"base": "Command",
+"class": "FaceToPlayer",
+"language": "GDScript",
+"path": "res://Events/Commands/FaceToPlayer.gd"
+}, {
 "base": "Component",
 "class": "MovementComponent",
 "language": "GDScript",
-"path": "res://MovementComponent.gd"
+"path": "res://Components/MovementComponent.gd"
 }, {
 "base": "MovementComponent",
 "class": "NPCMovementComponent",
@@ -37,37 +47,63 @@ _global_script_classes=[ {
 "base": "Component",
 "class": "PlayerAnimationComponent",
 "language": "GDScript",
-"path": "res://AnimationComponent.gd"
+"path": "res://Components/AnimationComponent.gd"
 }, {
 "base": "NPCMovementComponent",
 "class": "PlayerMovementComponent",
 "language": "GDScript",
-"path": "res://PlayerMovementComponent.gd"
+"path": "res://Components/PlayerMovementComponent.gd"
 }, {
 "base": "Reference",
 "class": "PlayerState",
 "language": "GDScript",
-"path": "res://PlayerState.gd"
+"path": "res://Entitys/Player/PlayerState.gd"
+}, {
+"base": "Command",
+"class": "Run",
+"language": "GDScript",
+"path": "res://Events/Commands/Run.gd"
+}, {
+"base": "Component",
+"class": "ScriptComponent",
+"language": "GDScript",
+"path": "res://Components/ScriptComponent.gd"
+}, {
+"base": "Command",
+"class": "TestCmd",
+"language": "GDScript",
+"path": "res://Events/Commands/testCmd.gd"
+}, {
+"base": "Command",
+"class": "Walk",
+"language": "GDScript",
+"path": "res://Events/Commands/Walk.gd"
 } ]
 _global_script_class_icons={
+"Command": "",
 "Component": "",
 "Entity": "",
 "Event": "",
+"FaceToPlayer": "",
 "MovementComponent": "",
 "NPCMovementComponent": "",
 "PlayerAnimationComponent": "",
 "PlayerMovementComponent": "",
-"PlayerState": ""
+"PlayerState": "",
+"Run": "",
+"ScriptComponent": "",
+"TestCmd": "",
+"Walk": ""
 }
 
 [application]
 
 config/name="Pokemon Godot"
-run/main_scene="res://Town.tscn"
+run/main_scene="res://Entitys/Town.tscn"
 
 [autoload]
 
-Log="*res://Logger.gd"
+Log="*res://Misc/Logger.gd"
 Groups="*res://Constants/Groups.gd"
 PlayerStates="*res://Constants/PlayerStates.gd"
 

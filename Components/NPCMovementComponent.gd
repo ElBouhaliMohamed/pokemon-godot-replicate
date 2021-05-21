@@ -28,7 +28,8 @@ func _ready():
 	
 func update(delta):
 	.update(delta)
-	updateMovementBehaviour()
+	if movement_locked == false:
+		updateMovementBehaviour()
 
 func updateMovementBehaviour():
 	if debug:
@@ -70,8 +71,6 @@ func is_npc_inbound(direction, steps) -> bool:
 	ray.cast_to = desired_step
 	ray.force_raycast_update()
 	if !ray.is_colliding():
-		# var area_x = spawn_position.x - (steps_till_bounds / 2 * TILE_SIZE)
-		# var area_y = spawn_position.y - (steps_till_bounds / 2 * TILE_SIZE)
 		var area : Rect2 = Rect2(spawn_position.x, spawn_position.y, 
 								steps_till_bounds * (TILE_SIZE / 2), 
 								steps_till_bounds * (TILE_SIZE / 2)
@@ -89,6 +88,8 @@ func stopRunning():
 	is_running = false
 
 func turn(direction: int):
+	event_processing += 1
+
 	match(direction):
 		FacingDirection.UP:
 			movesQueue.push_front(Vector2.UP)
@@ -100,14 +101,18 @@ func turn(direction: int):
 			movesQueue.push_front(Vector2.RIGHT)
 		_:
 			Log.error(self, "Movement", "Entity turn direction is invalid, direction = %s" %direction)
-			return
+			event_processing -= 1
+
 
 func walk(direction: int, steps: int):
 	var direction_vector = direction_to_vector(direction)
 	if direction_vector != Vector2.ZERO:
 		movesQueue.push_front(direction_vector)
+		event_processing += 1
 		for i in range(steps):
 			movesQueue.push_front(direction_vector)
+			event_processing += 1
+
 
 func direction_to_vector(direction: int):
 	match(direction):
@@ -123,5 +128,16 @@ func direction_to_vector(direction: int):
 			Log.error(self, "Movement", "Direction is invalid, direction = %s" %direction)
 			return Vector2.ZERO
 
-func finished_turning():
-	.finished_turning()
+func vector_to_direction(vector: Vector2):
+	match(vector):
+		Vector2.UP:
+			return FacingDirection.UP
+		Vector2.DOWN:
+			return FacingDirection.DOWN
+		Vector2.LEFT:
+			return FacingDirection.LEFT
+		Vector2.RIGHT:
+			return FacingDirection.RIGHT
+		_:
+			Log.error(self, "Movement", "Cant convert invalid vector to direction, vector = %s" %vector)
+			return FacingDirection.DOWN
