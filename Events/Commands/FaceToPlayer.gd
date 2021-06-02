@@ -10,7 +10,7 @@ func _ready():
 
 func run(player: Entity, entites: Array) -> void:
 	.run(player, entites)
-	var movementComponent = entity.get_node("MovementComponent")
+	var movementComponent = entity.get_component("Movement")
 	var direction_vector = entity.position.direction_to(player.position)
 	var direction = movementComponent.vector_to_direction(direction_vector)
 	if debug:

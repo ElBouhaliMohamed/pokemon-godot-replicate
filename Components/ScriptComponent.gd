@@ -3,11 +3,10 @@ class_name ScriptComponent
 
 onready var ray = get_owner().get_node("RayCast2D")
 onready var player = get_owner()
-onready var entities = get_tree().get_nodes_in_group("Entities")
 
 var script_running = false
 
-func _init().("ScriptComponent"):
+func _init().("Script"):
 	pass
 
 func update(delta):
@@ -17,23 +16,27 @@ func update(delta):
 		if event != null:
 			script_running = true
 			lock_entities_and_player([entity.entity_id])
-			event.run(player, entities)
+			event.run(player, get_entities())
 			yield(event, "finished_event")
 			unlock_entities_and_player([entity.entity_id])
 			script_running = false
 
-func lock_entities_and_player(scriptTargets: Array):
-	player.get_node("MovementComponent").movement_locked = true
+func get_entities():
+	return get_tree().get_nodes_in_group("Entities")
 
-	for entity in entities:
-		if scriptTargets.find(entity.entity_id) == -1:
-			var entity_movementComponent : MovementComponent = entity.get_node("MovementComponent")
-			entity_movementComponent.movement_locked = true
+func lock_entities_and_player(scriptTargets: Array):
+	player.get_component("Movement").movement_locked = true
+
+	for entity in get_entities():
+		if entity != null:
+			if scriptTargets.find(entity.entity_id) == -1:
+				var entity_movementComponent : MovementComponent = entity.get_component("Movement")
+				entity_movementComponent.movement_locked = true
 
 func unlock_entities_and_player(scriptTargets: Array):
-	player.get_node("MovementComponent").movement_locked = false
+	player.get_component("Movement").movement_locked = false
 
-	for entity in entities:
+	for entity in get_entities():
 		if scriptTargets.find(entity.entity_id) == -1:
-			var entity_movementComponent : MovementComponent = entity.get_node("MovementComponent")
+			var entity_movementComponent : MovementComponent = entity.get_component("Movement")
 			entity_movementComponent.movement_locked = false

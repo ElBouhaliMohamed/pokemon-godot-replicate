@@ -1,5 +1,5 @@
 extends Component
-class_name PlayerAnimationComponent
+class_name AnimationComponent
 
 onready var anim_tree = get_owner().get_node("AnimationTree")
 onready var anim_state = anim_tree.get("parameters/playback")
@@ -9,7 +9,7 @@ onready var runningSprite = get_owner().get_node("RunningSprite")
 func _ready():
 	anim_tree.active = true
 
-func _init().("PlayerAnimationComponent"):
+func _init().("Animation"):
 	pass
 
 func update(delta):

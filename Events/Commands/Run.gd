@@ -12,7 +12,7 @@ func _ready():
 
 func run(player: Entity, entites: Array) -> void:
 	.run(player, entites)
-	var movementComponent = entity.get_node("MovementComponent")
+	var movementComponent = entity.get_component("Movement")
 	movementComponent.is_running = true
 	if debug:
 		Log.trace(self, "Run", "Entity %s runs %s steps with direction %s" %[entity.entity_id, steps, direction])

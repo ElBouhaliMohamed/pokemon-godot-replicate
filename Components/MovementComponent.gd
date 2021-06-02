@@ -28,7 +28,7 @@ var facing_direction = FacingDirection.DOWN
 var movesQueue = []
 var nextMove_direction = Vector2(0,0)
 var event_processing = 0
-func _init().("MovementComponent"):
+func _init().("Movement"):
 	pass
 
 func _ready() -> void:

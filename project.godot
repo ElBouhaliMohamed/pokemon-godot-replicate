@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Component",
+"class": "AnimationComponent",
+"language": "GDScript",
+"path": "res://Components/AnimationComponent.gd"
+}, {
+"base": "Command",
+"class": "ChangeScene",
+"language": "GDScript",
+"path": "res://Events/Commands/ChangeScene.gd"
+}, {
 "base": "Node",
 "class": "Command",
 "language": "GDScript",
@@ -18,6 +28,11 @@ _global_script_classes=[ {
 "class": "Component",
 "language": "GDScript",
 "path": "res://Components/Component.gd"
+}, {
+"base": "Command",
+"class": "Dialog",
+"language": "GDScript",
+"path": "res://Events/Commands/Dialog.gd"
 }, {
 "base": "Node2D",
 "class": "Entity",
@@ -34,6 +49,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Events/Commands/FaceToPlayer.gd"
 }, {
+"base": "Command",
+"class": "FadeScreen",
+"language": "GDScript",
+"path": "res://Events/Commands/FadeScreen.gd"
+}, {
+"base": "Node2D",
+"class": "Map",
+"language": "GDScript",
+"path": "res://Maps/Map.gd"
+}, {
 "base": "Component",
 "class": "MovementComponent",
 "language": "GDScript",
@@ -43,11 +68,6 @@ _global_script_classes=[ {
 "class": "NPCMovementComponent",
 "language": "GDScript",
 "path": "res://Components/NPCMovementComponent.gd"
-}, {
-"base": "Component",
-"class": "PlayerAnimationComponent",
-"language": "GDScript",
-"path": "res://Components/AnimationComponent.gd"
 }, {
 "base": "NPCMovementComponent",
 "class": "PlayerMovementComponent",
@@ -80,14 +100,18 @@ _global_script_classes=[ {
 "path": "res://Events/Commands/Walk.gd"
 } ]
 _global_script_class_icons={
+"AnimationComponent": "",
+"ChangeScene": "",
 "Command": "",
 "Component": "",
+"Dialog": "",
 "Entity": "",
 "Event": "",
 "FaceToPlayer": "",
+"FadeScreen": "",
+"Map": "",
 "MovementComponent": "",
 "NPCMovementComponent": "",
-"PlayerAnimationComponent": "",
 "PlayerMovementComponent": "",
 "PlayerState": "",
 "Run": "",
@@ -99,20 +123,22 @@ _global_script_class_icons={
 [application]
 
 config/name="Pokemon Godot"
-run/main_scene="res://Entitys/Town.tscn"
+run/main_scene="res://Game.tscn"
 
 [autoload]
 
 Log="*res://Misc/Logger.gd"
 Groups="*res://Constants/Groups.gd"
 PlayerStates="*res://Constants/PlayerStates.gd"
+MessageBox="*res://GUI/MessageBox.gd"
 
 [display]
 
 window/size/width=320
-window/size/height=180
-window/size/test_width=1280
-window/size/test_height=720
+window/size/height=240
+window/size/always_on_top=true
+window/size/test_width=640
+window/size/test_height=480
 window/stretch/mode="2d"
 
 [importer_defaults]

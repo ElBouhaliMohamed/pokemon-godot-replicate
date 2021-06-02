@@ -33,17 +33,6 @@ var state: PlayerState = PlayerState.new()
 func _ready() -> void:
 	entity_event = get_node_or_null("Event")
 	
-	if entity_type == 1 || entity_type == 2:
-		get_node("WalkingSprite").texture = entity_walking_texture
-		get_node("RunningSprite").texture = entity_running_texture
-
-		var movementComponent = get_node("MovementComponent")
-		movementComponent.movement_type = movement_type
-		movementComponent.max_movement_delay = max_movement_delay
-		movementComponent.max_steps = max_steps
-		movementComponent.steps_till_bounds = steps_till_bounds
-		
-	
 	if enable_on_spawn:
 		enabled = true
 	add_to_group(Groups.ENTITIES)

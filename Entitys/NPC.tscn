@@ -1,8 +1,6 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=57 format=2]
 
-[ext_resource path="res://Entitys/Entity.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Player/Male_Walking.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Player/Male_Running.png" type="Texture" id=3]
+[ext_resource path="res://Entitys/NPC.gd" type="Script" id=1]
 [ext_resource path="res://Components/AnimationComponent.gd" type="Script" id=4]
 [ext_resource path="res://Components/NPCMovementComponent.gd" type="Script" id=5]
 
@@ -456,10 +454,7 @@ extents = Vector2( 8, 8 )
 
 [node name="NPC" type="KinematicBody2D"]
 script = ExtResource( 1 )
-entity_walking_texture = ExtResource( 2 )
-entity_running_texture = ExtResource( 3 )
 enable_on_spawn = true
-entity_type = 2
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 33 )
@@ -516,9 +511,7 @@ cast_to = Vector2( 0, 8 )
 [node name="AnimationComponent" type="Node" parent="."]
 script = ExtResource( 4 )
 enabled = true
-comp_name = "Animation"
 
 [node name="MovementComponent" type="Node" parent="."]
 script = ExtResource( 5 )
 enabled = true
-comp_name = "Movement"

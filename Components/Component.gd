@@ -3,13 +3,13 @@ class_name Component
 
 onready var entity: Entity = get_parent()
 export(bool) var enabled setget set_enabled
-export(String) var comp_name = "" setget, _get_comp_name
 export(bool) var debug = false
 
+var comp_name = "" setget, _get_comp_name
 func _init(_comp_name:String) -> void:
 	self.comp_name = _comp_name
 
-func _ready() -> void:	
+func _ready() -> void:
 	entity.add_component(comp_name, self)
 	add_to_group(Groups.COMPONENTS)
 
