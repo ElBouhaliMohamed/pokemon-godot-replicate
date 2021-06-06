@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Menu/Frames/choice 1.png" type="Texture" id=2]
+[ext_resource path="res://GUI/Option.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://Assets/Fonts/Pokemon_GB.ttf"
+
+[sub_resource type="DynamicFont" id=1]
+size = 38
+font_data = SubResource( 2 )
+
+[node name="Option" type="NinePatchRect"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+rect_min_size = Vector2( 0, 48 )
+size_flags_horizontal = 3
+texture = ExtResource( 2 )
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "This is a test option."
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

@@ -440,7 +440,9 @@ position = Vector2( 0, -32 )
 
 [node name="YSort" type="YSort" parent="."]
 
-[node name="Player" parent="YSort" instance=ExtResource( 1 )]
+[node name="Player" parent="YSort" groups=[
+"Player",
+] instance=ExtResource( 1 )]
 position = Vector2( -64, 64 )
 entity_walking_texture = ExtResource( 8 )
 entity_running_texture = ExtResource( 9 )
@@ -502,7 +504,7 @@ entity_path = NodePath("../..")
 [node name="Dialog" type="Node" parent="YSort/NPC5/Event"]
 script = ExtResource( 21 )
 debug = true
-dialog = "Hallo Welt!\\nDies ist ein Test\\nDas ist die dritte Zeile\\n Mal sehen ob das so klappt\\n Idk!\\n "
+dialog = "DialogPlayer/ChoiceBranching"
 
 [node name="ChangeScene" type="Node" parent="YSort/NPC5/Event"]
 script = ExtResource( 12 )

@@ -1,0 +1,33 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/EXP-System-Dialog/Resource_BakedStory/EXP_BakedStory.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+TYPE = "EXP_Baked_Story"
+story = {
+1: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "Hello world!"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "Another one!"
+},
+3: {
+"links": {
+},
+"text": "This is a longer text to test how the dialog box works with long texts blablabla this is more nonsense pokemon is awesome blablabla"
+}
+}
+}
+}
+names = {
+"Hello World": 1
+}

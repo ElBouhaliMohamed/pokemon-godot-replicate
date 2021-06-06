@@ -11,8 +11,8 @@ var player_inside: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
-#	get_tree().current_scene.find_node("Player").get_component("MovementComponent").connect("entity_moving_signal", self, "entity_exiting_grass")
-#	get_tree().current_scene.find_node("Player").get_component("MovementComponent").connect("entity_stopped_signal", self, "entity_in_grass")
+	get_tree().current_scene.find_node("Player").get_component("MovementComponent").connect("entity_moving_signal", self, "entity_exiting_grass")
+	get_tree().current_scene.find_node("Player").get_component("MovementComponent").connect("entity_stopped_signal", self, "entity_in_grass")
 
 func entity_exiting_grass():
 	player_inside = false

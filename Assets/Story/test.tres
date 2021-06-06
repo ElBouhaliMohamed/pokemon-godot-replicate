@@ -1,0 +1,51 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/EXP-System-Dialog/Resource_EditorStory/EXP_EditorStory.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+TYPE = "EXP_Story_editor"
+names = {
+"HelloWorld": 1
+}
+story = {
+1: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "New Dialog - Enter Human Readable Description.",
+"name": "HelloWorld",
+"nodes": {
+1: {
+"graph_offset": Vector2( -66, 134 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "Hello world!",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( 926, 182 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "Another one!",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( 1460, 430 ),
+"links": {
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "This is a longer text to test how the dialog box works with long texts blablabla this is more nonsense pokemon is awesome blablabla",
+"type": "line"
+}
+}
+}
+}
+available_dids = [  ]
+groups = [  ]
