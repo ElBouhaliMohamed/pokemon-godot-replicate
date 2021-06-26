@@ -1,41 +1,23 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Assets/Menu/Frames/choice 1.png" type="Texture" id=2]
-[ext_resource path="res://GUI/Option.gd" type="Script" id=3]
+[ext_resource path="res://GUI/Option.gd" type="Script" id=1]
 
-[sub_resource type="DynamicFontData" id=2]
+[sub_resource type="DynamicFontData" id=1]
 font_path = "res://Assets/Fonts/Pokemon_GB.ttf"
 
-[sub_resource type="DynamicFont" id=1]
-size = 38
-font_data = SubResource( 2 )
+[sub_resource type="DynamicFont" id=2]
+size = 80
+font_data = SubResource( 1 )
 
-[node name="Option" type="NinePatchRect"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_vertical = 0
-rect_min_size = Vector2( 0, 48 )
-size_flags_horizontal = 3
-texture = ExtResource( 2 )
-patch_margin_left = 20
-patch_margin_top = 20
-patch_margin_right = 20
-patch_margin_bottom = 20
-script = ExtResource( 3 )
+[node name="Label" type="Label"]
+margin_top = 5.66327
+margin_right = 311.689
+margin_bottom = 37.6633
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.117647, 0.117647, 0.117647, 1 )
+text = "Option 1"
+align = 2
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Button" type="Button" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "This is a test option."
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

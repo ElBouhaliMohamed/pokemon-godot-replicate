@@ -9,15 +9,30 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Command",
+"class": "AddFlag",
+"language": "GDScript",
+"path": "res://Events/Commands/AddFlag.gd"
+}, {
 "base": "Component",
 "class": "AnimationComponent",
 "language": "GDScript",
 "path": "res://Components/AnimationComponent.gd"
 }, {
 "base": "Command",
+"class": "CameraShake",
+"language": "GDScript",
+"path": "res://Events/Commands/CameraShake.gd"
+}, {
+"base": "Command",
 "class": "ChangeScene",
 "language": "GDScript",
 "path": "res://Events/Commands/ChangeScene.gd"
+}, {
+"base": "Command",
+"class": "CheckFlag",
+"language": "GDScript",
+"path": "res://Events/Commands/CheckFlag.gd"
 }, {
 "base": "Node",
 "class": "Command",
@@ -44,6 +59,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Events/Event.gd"
 }, {
+"base": "Area2D",
+"class": "EventArea",
+"language": "GDScript",
+"path": "res://Events/EventArea.gd"
+}, {
 "base": "Command",
 "class": "FaceToPlayer",
 "language": "GDScript",
@@ -69,6 +89,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Components/NPCMovementComponent.gd"
 }, {
+"base": "Entity",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Entitys/Player/Player.gd"
+}, {
 "base": "NPCMovementComponent",
 "class": "PlayerMovementComponent",
 "language": "GDScript",
@@ -78,6 +103,11 @@ _global_script_classes=[ {
 "class": "PlayerState",
 "language": "GDScript",
 "path": "res://Entitys/Player/PlayerState.gd"
+}, {
+"base": "Command",
+"class": "ResetFlag",
+"language": "GDScript",
+"path": "res://Events/Commands/ResetFlag.gd"
 }, {
 "base": "Command",
 "class": "Run",
@@ -95,28 +125,46 @@ _global_script_classes=[ {
 "path": "res://Events/Commands/testCmd.gd"
 }, {
 "base": "Command",
+"class": "TriggerFlag",
+"language": "GDScript",
+"path": "res://Events/Commands/TriggerFlag.gd"
+}, {
+"base": "Command",
+"class": "Turn",
+"language": "GDScript",
+"path": "res://Turn.gd"
+}, {
+"base": "Command",
 "class": "Walk",
 "language": "GDScript",
 "path": "res://Events/Commands/Walk.gd"
 } ]
 _global_script_class_icons={
+"AddFlag": "",
 "AnimationComponent": "",
+"CameraShake": "",
 "ChangeScene": "",
+"CheckFlag": "",
 "Command": "",
 "Component": "",
 "Dialog": "",
 "Entity": "",
 "Event": "",
+"EventArea": "",
 "FaceToPlayer": "",
 "FadeScreen": "",
 "Map": "",
 "MovementComponent": "",
 "NPCMovementComponent": "",
+"Player": "",
 "PlayerMovementComponent": "",
 "PlayerState": "",
+"ResetFlag": "",
 "Run": "",
 "ScriptComponent": "",
 "TestCmd": "",
+"TriggerFlag": "",
+"Turn": "",
 "Walk": ""
 }
 
@@ -129,16 +177,22 @@ run/main_scene="res://Game.tscn"
 
 Log="*res://Misc/Logger.gd"
 Groups="*res://Constants/Groups.gd"
-PlayerStates="*res://Constants/PlayerStates.gd"
+Time="*res://System/DayNightCircle/Singletons/Time.gd"
+Paths="*res://Misc/Paths.gd"
+SoundManager="*res://System/SoundManager.gd"
+Flags="*res://System/Flags.gd"
+Enums="*res://Constants/Enums.gd"
 
 [display]
 
 window/size/width=320
 window/size/height=240
+window/size/resizable=false
 window/size/always_on_top=true
 window/size/test_width=640
 window/size/test_height=480
 window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [editor_plugins]
 
@@ -177,6 +231,17 @@ ui_shift={
 toggle_logger={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777246,"unicode":0,"echo":false,"script":null)
+ ]
+}
+menu={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777221,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_debug={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777255,"unicode":0,"echo":false,"script":null)
  ]
 }
 

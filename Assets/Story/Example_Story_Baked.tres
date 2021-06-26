@@ -44,7 +44,6 @@ story = {
 },
 6: {
 "links": {
-
 },
 "text": "<end>"
 }
@@ -60,7 +59,6 @@ story = {
 },
 2: {
 "links": {
-
 },
 "text": "<end>"
 },
@@ -104,7 +102,6 @@ story = {
 },
 2: {
 "links": {
-
 },
 "text": "<end>"
 },
@@ -123,7 +120,7 @@ story = {
 0: 7
 },
 "text": "<speaker>Red Potion</speaker>
-<dialog>HA HA For drinking me, the Romantic Red Potion, everyone will fall in love with you, but you can never love again!</dialog>"
+<dialog>HA HA For drinking me, the Romantic Red Potion,\\n everyone will fall in love with you, but you can never love again!</dialog>"
 },
 5: {
 "links": {
@@ -144,7 +141,7 @@ story = {
 0: 2
 },
 "text": "<speaker>Wizard</speaker>
-<dialog>Well, it could be worse, you're not dead after all...</dialog>"
+<dialog>Well, it could be worse, you're not dead after all... Ich liebe Kim und ich freu mich auf den Einzug in die Wohnung mit ihr. Trotzdem habe ich angst vor der zukunft einfach weil alles sich so krass ändert. Ich ziehe aus und lebe 500km entfernt von meiner familie und mein bruder heiratet ende des jahres..</dialog>"
 }
 }
 },
@@ -152,7 +149,6 @@ story = {
 "nodes": {
 1: {
 "links": {
-
 },
 "text": "{
 \"emi\" : \"res://DaveTheDev Tutorials/12 Dialog Player/textures/characters/emi.png\",
@@ -174,7 +170,6 @@ story = {
 },
 2: {
 "links": {
-
 },
 "text": "<end>"
 },
@@ -267,6 +262,72 @@ story = {
 <image>haruko</image>"
 }
 }
+},
+6: {
+"nodes": {
+1: {
+"links": {
+0: 3
+},
+"text": "<speaker>NPC4</speaker>
+<dialog>Hey we've already talked haha!</dialog>"
+},
+2: {
+"links": {
+0: 1
+},
+"text": "<start>"
+},
+3: {
+"links": {
+},
+"text": "<end>"
+}
+}
+},
+7: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>NPC4</speaker>
+<dialog>Hey du! Schön dich kennen zu lernen. Ich bin NPC4</dialog>"
+},
+3: {
+"links": {
+},
+"text": "<end>"
+}
+}
+},
+8: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Test</speaker>
+<dialog>This is a test dialog.</dialog>"
+},
+3: {
+"links": {
+},
+"text": "<end>"
+}
+}
 }
 }
 names = {
@@ -274,5 +335,8 @@ names = {
 "DialogPlayer/ChoiceBranching": 3,
 "DialogPlayer/Test": 1,
 "DialogPlayer/TextureLibrary": 4,
-"DialogPlayer/VariableInjection": 2
+"DialogPlayer/VariableInjection": 2,
+"NPC4FlagFalse": 7,
+"NPC4FlagTrue": 6,
+"test": 8
 }

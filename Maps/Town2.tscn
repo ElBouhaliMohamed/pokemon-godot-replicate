@@ -548,7 +548,7 @@ script = ExtResource( 7 )
 [node name="ChangeScene" type="Node" parent="YSort/NPC/Event"]
 script = ExtResource( 8 )
 debug = true
-next_scene_path = "res://Entitys/Town.tscn"
+next_scene_path = "res://Maps/Town.tscn"
 
 [node name="Trees" type="YSort" parent="YSort"]
 

@@ -1,11 +1,4 @@
-[gd_resource type="DynamicFont" load_steps=2 format=2]
-
-[sub_resource type="DynamicFontData" id=1]
-antialiased = false
-font_path = "res://Assets/Fonts/Pokemon_GB.ttf"
+[gd_resource type="DynamicFontData" format=2]
 
 [resource]
-size = 10
-outline_color = Color( 0, 0, 0, 1 )
-use_mipmaps = true
-font_data = SubResource( 1 )
+font_path = "res://Assets/Fonts/Pokemon_GB.ttf"

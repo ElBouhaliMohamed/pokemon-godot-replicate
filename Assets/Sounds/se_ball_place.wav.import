@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/se_ball_place.wav-8b2bf12956bc2fca72f1c2f735dc22eb.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/se_ball_place.wav"
+dest_files=[ "res://.import/se_ball_place.wav-8b2bf12956bc2fca72f1c2f735dc22eb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

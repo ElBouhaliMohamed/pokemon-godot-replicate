@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Battle recall.wav-90074641d60b1ee416a1e58c19693cba.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Battle recall.wav"
+dest_files=[ "res://.import/Battle recall.wav-90074641d60b1ee416a1e58c19693cba.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

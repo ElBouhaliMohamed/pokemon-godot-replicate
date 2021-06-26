@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/GUI sel cancel.wav-052112d5f9fbd75ed7bb11f87725b140.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/GUI sel cancel.wav"
+dest_files=[ "res://.import/GUI sel cancel.wav-052112d5f9fbd75ed7bb11f87725b140.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

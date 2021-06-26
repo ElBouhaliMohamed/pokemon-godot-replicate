@@ -4,7 +4,6 @@ extends Node
 # To add a new group, simply create a new const as per below, with the group
 # name.
 
+const MAP_EVENTS: String = "mapEvents"
 const ENTITIES: String = "entities"
 const COMPONENTS: String = "components"
-const LOD_MODELS: String = "lod_models"
-const DYNAMIC_VISIBILITY: String = "dynamic_visibility"

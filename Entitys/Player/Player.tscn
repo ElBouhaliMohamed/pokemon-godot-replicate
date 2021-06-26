@@ -1,9 +1,13 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://Components/ScriptComponent.gd" type="Script" id=1]
 [ext_resource path="res://Entitys/Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Components/DebugComponent.tscn" type="PackedScene" id=3]
+[ext_resource path="res://System/Camera.gd" type="Script" id=4]
 [ext_resource path="res://Components/PlayerMovementComponent.gd" type="Script" id=5]
 [ext_resource path="res://Components/AnimationComponent.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Sounds/Player bump.wav" type="AudioStream" id=7]
+[ext_resource path="res://System/RayCast.gd" type="Script" id=8]
 
 [sub_resource type="AnimationNodeAnimation" id=1]
 animation = "IdleLeft"
@@ -510,15 +514,22 @@ current = true
 zoom = Vector2( 0.8, 0.8 )
 smoothing_enabled = true
 smoothing_speed = 10.0
+script = ExtResource( 4 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2( 8, 8 )
+enabled = true
 cast_to = Vector2( 0, 8 )
+script = ExtResource( 8 )
+debug = true
 
 [node name="MovementComponent" type="Node" parent="."]
 process_priority = -1
 script = ExtResource( 5 )
 enabled = true
+
+[node name="BumpSound" type="AudioStreamPlayer2D" parent="MovementComponent"]
+stream = ExtResource( 7 )
 
 [node name="AnimationComponent" type="Node" parent="."]
 process_priority = -1
@@ -530,3 +541,12 @@ debug = true
 process_priority = -1
 script = ExtResource( 1 )
 enabled = true
+
+[node name="DebugComponent" parent="." instance=ExtResource( 3 )]
+paths = [ {
+"path": "MovementComponent",
+"property": ":entity:position"
+}, {
+"path": "MovementComponent",
+"property": ":facing_direction"
+} ]

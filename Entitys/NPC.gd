@@ -10,3 +10,5 @@ func _ready():
 	movementComponent.max_movement_delay = max_movement_delay
 	movementComponent.max_steps = max_steps
 	movementComponent.steps_till_bounds = steps_till_bounds
+	
+	add_to_group(Groups.ENTITIES)

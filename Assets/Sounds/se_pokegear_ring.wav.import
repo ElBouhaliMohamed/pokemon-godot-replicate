@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/se_pokegear_ring.wav-ef1b70e409a223abd40a50d08d0c1154.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/se_pokegear_ring.wav"
+dest_files=[ "res://.import/se_pokegear_ring.wav-ef1b70e409a223abd40a50d08d0c1154.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

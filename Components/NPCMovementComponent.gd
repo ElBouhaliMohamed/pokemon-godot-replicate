@@ -67,7 +67,7 @@ func updateMovementBehaviour():
 func is_npc_inbound(direction, steps) -> bool:
 	# check if npc is still in reach of spawn_position
 	# and if he colides he should move in the opposite direction for the next step
-	var desired_step: Vector2 = direction_to_vector(direction) * (TILE_SIZE * steps) / 2
+	var desired_step: Vector2 = calc_desired_step(direction_to_vector(direction), steps)
 	ray.cast_to = desired_step
 	ray.force_raycast_update()
 	if !ray.is_colliding():
@@ -91,13 +91,13 @@ func turn(direction: int):
 	event_processing += 1
 
 	match(direction):
-		FacingDirection.UP:
+		FacingDirections.UP:
 			movesQueue.push_front(Vector2.UP)
-		FacingDirection.DOWN:
+		FacingDirections.DOWN:
 			movesQueue.push_front(Vector2.DOWN)
-		FacingDirection.LEFT:
+		FacingDirections.LEFT:
 			movesQueue.push_front(Vector2.LEFT)
-		FacingDirection.RIGHT:
+		FacingDirections.RIGHT:
 			movesQueue.push_front(Vector2.RIGHT)
 		_:
 			Log.error(self, "Movement", "Entity turn direction is invalid, direction = %s" %direction)
@@ -113,16 +113,16 @@ func walk(direction: int, steps: int):
 			movesQueue.push_front(direction_vector)
 			event_processing += 1
 
-
+# helper functions
 func direction_to_vector(direction: int):
 	match(direction):
-		FacingDirection.UP:
+		FacingDirections.UP:
 			return Vector2.UP
-		FacingDirection.DOWN:
+		FacingDirections.DOWN:
 			return Vector2.DOWN
-		FacingDirection.LEFT:
+		FacingDirections.LEFT:
 			return Vector2.LEFT
-		FacingDirection.RIGHT:
+		FacingDirections.RIGHT:
 			return Vector2.RIGHT
 		_:
 			Log.error(self, "Movement", "Direction is invalid, direction = %s" %direction)
@@ -131,13 +131,13 @@ func direction_to_vector(direction: int):
 func vector_to_direction(vector: Vector2):
 	match(vector):
 		Vector2.UP:
-			return FacingDirection.UP
+			return FacingDirections.UP
 		Vector2.DOWN:
-			return FacingDirection.DOWN
+			return FacingDirections.DOWN
 		Vector2.LEFT:
-			return FacingDirection.LEFT
+			return FacingDirections.LEFT
 		Vector2.RIGHT:
-			return FacingDirection.RIGHT
+			return FacingDirections.RIGHT
 		_:
 			Log.error(self, "Movement", "Cant convert invalid vector to direction, vector = %s" %vector)
-			return FacingDirection.DOWN
+			return FacingDirections.DOWN

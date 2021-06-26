@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/se_pokegear_hangup.wav-97dd16df5991b000da9a77feff92d78b.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/se_pokegear_hangup.wav"
+dest_files=[ "res://.import/se_pokegear_hangup.wav-97dd16df5991b000da9a77feff92d78b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

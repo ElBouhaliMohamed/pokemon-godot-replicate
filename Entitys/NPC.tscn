@@ -1,6 +1,7 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://Entitys/NPC.gd" type="Script" id=1]
+[ext_resource path="res://Components/DebugComponent.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Components/AnimationComponent.gd" type="Script" id=4]
 [ext_resource path="res://Components/NPCMovementComponent.gd" type="Script" id=5]
 
@@ -515,3 +516,12 @@ enabled = true
 [node name="MovementComponent" type="Node" parent="."]
 script = ExtResource( 5 )
 enabled = true
+
+[node name="DebugComponent" parent="." instance=ExtResource( 2 )]
+paths = [ {
+"path": "MovementComponent",
+"property": ":entity:position"
+}, {
+"path": "MovementComponent",
+"property": ":facing_direction"
+} ]

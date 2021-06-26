@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/04 Pallet Town Theme.mp3-ee9e764e900f216596be9c319b242c34.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/04 Pallet Town Theme.mp3"
+dest_files=[ "res://.import/04 Pallet Town Theme.mp3-ee9e764e900f216596be9c319b242c34.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

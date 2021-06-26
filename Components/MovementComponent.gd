@@ -22,12 +22,17 @@ var percent_moved_to_next_tile = 0.0
 onready var ray = get_owner().get_node("RayCast2D")
 onready var anim_tree = get_owner().get_node("AnimationTree")
 
-enum FacingDirection { LEFT, RIGHT, UP, DOWN }
-var facing_direction = FacingDirection.DOWN
+var FacingDirections = Enums.FacingDirections
+var PlayerStates = Enums.PlayerStates
+
+var facing_direction = FacingDirections.DOWN
 
 var movesQueue = []
 var nextMove_direction = Vector2(0,0)
 var event_processing = 0
+
+var bump_sound = load("res://Assets/Sounds/Player bump.wav")
+
 func _init().("Movement"):
 	pass
 
@@ -41,7 +46,7 @@ func _get_movement_locked():
 	return movement_locked
 
 func update(delta):
-	if movement_locked == false:
+	if movement_locked == false || (entity.state.get_state() == PlayerStates.WALKING || entity.state.get_state() == PlayerStates.RUNNING):
 		if entity.state.get_state() == PlayerStates.TURNING:
 			return
 		elif is_moving == false:
@@ -59,13 +64,13 @@ func update(delta):
 func need_to_turn():
 	var new_facing_direction
 	if nextMove_direction.x < 0:
-		new_facing_direction = FacingDirection.LEFT
+		new_facing_direction = FacingDirections.LEFT
 	elif nextMove_direction.x > 0:
-		new_facing_direction = FacingDirection.RIGHT
+		new_facing_direction = FacingDirections.RIGHT
 	elif nextMove_direction.y < 0:
-		new_facing_direction = FacingDirection.UP
+		new_facing_direction = FacingDirections.UP
 	elif nextMove_direction.y > 0:
-		new_facing_direction = FacingDirection.DOWN
+		new_facing_direction = FacingDirections.DOWN
 	
 	if !can_only_turn:
 		if facing_direction != new_facing_direction:
@@ -79,13 +84,15 @@ func need_to_turn():
 
 func finished_turning():
 	entity.state.set_state(PlayerStates.IDLE)
-
+	var desired_step: Vector2 = calc_desired_step(nextMove_direction, 1)
+	ray.cast_to = desired_step
+	ray.force_raycast_update()
+	
 func process_queue():
 	pass
 
 func process_entity_movement_input():
 	process_queue()
-	
 
 	if !movesQueue.empty():
 		nextMove_direction = movesQueue[0]
@@ -118,7 +125,7 @@ func process_entity_movement_input():
 		entity.state.set_state(PlayerStates.IDLE)
 
 func move(delta):
-	var desired_step: Vector2 = nextMove_direction * TILE_SIZE / 2
+	var desired_step: Vector2 = calc_desired_step(nextMove_direction, 1)
 	ray.cast_to = desired_step
 	ray.force_raycast_update()
 	if !ray.is_colliding():
@@ -138,6 +145,12 @@ func move(delta):
 		else:
 			entity.position = initial_position + (nextMove_direction * TILE_SIZE * percent_moved_to_next_tile)
 	else:
+		if entity is Player:
+			SoundManager.play(0, self, bump_sound, "bump")
 		is_moving = false
 		if event_processing > 0:
 			event_processing -= 1
+
+# helper functions
+func calc_desired_step(direction: Vector2, steps: int, scale: int = 2):
+	return direction * (TILE_SIZE * steps) / scale

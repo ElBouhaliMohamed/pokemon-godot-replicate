@@ -35,7 +35,7 @@ func _ready() -> void:
 	
 	if enable_on_spawn:
 		enabled = true
-	add_to_group(Groups.ENTITIES)
+		
 	if !enabled: #disable all components if entity is disabled
 		set_enabled(enabled)
 

@@ -1,6 +1,7 @@
 extends Reference
 class_name PlayerState
 
+var PlayerStates = Enums.PlayerStates
 var state: int = PlayerStates.IDLE setget set_state
 var changed = false setget , has_changed
 

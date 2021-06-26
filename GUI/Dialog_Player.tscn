@@ -1,91 +1,85 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Assets/Menu/Frames/choice 1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Menu/Frames/choice 32.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Menu/arrow.png" type="Texture" id=2]
 [ext_resource path="res://GUI/Dialog_Player.gd" type="Script" id=3]
 [ext_resource path="res://GUI/Simulated_Registry.gd" type="Script" id=4]
 [ext_resource path="res://GUI/Option.tscn" type="PackedScene" id=5]
+[ext_resource path="res://GUI/DialogPanel.gd" type="Script" id=6]
+[ext_resource path="res://GUI/ChoiceBox.gd" type="Script" id=8]
+[ext_resource path="res://Assets/Fonts/pokemon_gb_dynamic_font.tres" type="DynamicFont" id=10]
 
-[sub_resource type="DynamicFontData" id=7]
-font_path = "res://Assets/Fonts/Pokemon_GB.ttf"
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 48, 48 )
+margin_left = 20.0
+margin_right = 20.0
+margin_top = 20.0
+margin_bottom = 20.0
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
 
-[sub_resource type="DynamicFont" id=1]
-size = 38
-outline_color = Color( 0, 0, 0, 1 )
-font_data = SubResource( 7 )
-
-[sub_resource type="Animation" id=2]
-resource_name = "TextDisplay"
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:percent_visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 1.0 ]
-}
-
-[sub_resource type="DynamicFontData" id=8]
+[sub_resource type="DynamicFontData" id=2]
 font_path = "res://Assets/Fonts/Pokemon_GB.ttf"
 
 [sub_resource type="DynamicFont" id=3]
-size = 36
-font_data = SubResource( 8 )
+size = 80
+font_data = SubResource( 2 )
 
-[sub_resource type="DynamicFontData" id=9]
-font_path = "res://Assets/Fonts/Pokemon_GB.ttf"
-
-[sub_resource type="DynamicFont" id=4]
-size = 38
-font_data = SubResource( 9 )
-
-[sub_resource type="Animation" id=5]
-resource_name = "PressSpaceBar"
+[sub_resource type="Animation" id=4]
+length = 0.5
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_scale")
+tracks/0/path = NodePath("Sprite:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( 3, 3 ), Vector2( 5, 5 ), Vector2( 3, 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 243.331, 48 ), Vector2( 243.5, 27 ), Vector2( 243.331, 48 ) ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "PressSpaceBar"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
-}
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 48, 48 )
+margin_left = 20.0
+margin_right = 20.0
+margin_top = 20.0
+margin_bottom = 20.0
 
 [node name="Dialog_Player" type="CanvasLayer"]
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 180.061, 221.926 ],
+"_edit_vertical_guides_": [ 314.23, 5.69198 ]
+}
 
 [node name="Dialog_Box" type="Control" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -80.0
-margin_top = -16.0
-margin_right = 240.0
-margin_bottom = 224.0
+margin_left = 14.1206
+margin_top = 13.2512
+margin_right = 334.121
+margin_bottom = 253.251
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -93,10 +87,10 @@ __meta__ = {
 [node name="Body_NinePatchRect" type="NinePatchRect" parent="Dialog_Box"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -80.0
-margin_top = 59.0
-margin_right = 1198.0
-margin_bottom = 168.0
+margin_left = -169.0
+margin_top = 50.0
+margin_right = 1053.0
+margin_bottom = 76.0002
 rect_min_size = Vector2( 720, 256 )
 rect_scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 1 )
@@ -111,10 +105,10 @@ __meta__ = {
 [node name="MarginContainer" type="MarginContainer" parent="Dialog_Box/Body_NinePatchRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 14.6395
-margin_top = 48.0
-margin_right = -17.3605
-margin_bottom = -48.0
+margin_left = 80.0
+margin_top = 16.0
+margin_right = -177.002
+margin_bottom = -17.9997
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -122,156 +116,111 @@ __meta__ = {
 }
 
 [node name="Body_Label" type="Label" parent="Dialog_Box/Body_NinePatchRect/MarginContainer"]
-margin_right = 1566.0
-margin_bottom = 253.0
+margin_right = 1284.0
+margin_bottom = 232.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 10 )
+custom_colors/font_color = Color( 0.117647, 0.117647, 0.117647, 1 )
+custom_colors/font_color_shadow = Color( 0.117647, 0.117647, 0.117647, 1 )
 text = "This is where the body of the dialog text goes.
 Press F6 to play! ^_^"
-autowrap = true
+valign = 1
+max_lines_visible = 2
 
-[node name="Body_AnimationPlayer" type="AnimationPlayer" parent="Dialog_Box/Body_NinePatchRect/MarginContainer/Body_Label"]
-anims/TextDisplay = SubResource( 2 )
-
-[node name="Speaker_NinePatchRect" type="NinePatchRect" parent="Dialog_Box/Body_NinePatchRect"]
-margin_top = -55.0
-margin_right = 180.0
-margin_bottom = -7.0
-rect_min_size = Vector2( 180, 48 )
-texture = ExtResource( 1 )
-patch_margin_left = 20
-patch_margin_top = 20
-patch_margin_right = 20
-patch_margin_bottom = 20
+[node name="Speaker_NinePatchRect" type="PanelContainer" parent="Dialog_Box/Body_NinePatchRect"]
+margin_left = 5.0
+margin_top = -131.0
+margin_right = 165.0
+margin_bottom = -21.0
+size_flags_horizontal = 15
+size_flags_vertical = 15
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Speaker_Label" type="Label" parent="Dialog_Box/Body_NinePatchRect/Speaker_NinePatchRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 13.0
-margin_top = 13.0
-margin_right = -14.0
-margin_bottom = -13.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 140.0
+margin_bottom = 90.0
+size_flags_horizontal = 3
+size_flags_vertical = 15
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Speaker"
+text = "Test"
 align = 1
 valign = 1
+max_lines_visible = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SpaceBar_NinePatchRect" type="NinePatchRect" parent="Dialog_Box/Body_NinePatchRect"]
+[node name="SpaceBar_NinePatchRect" type="CenterContainer" parent="Dialog_Box/Body_NinePatchRect"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -300.0
-margin_top = -37.667
-margin_right = -5.28345
-margin_bottom = 10.333
+margin_left = -307.078
+margin_top = -130.591
+margin_right = 258.922
+margin_bottom = -61.5905
 rect_min_size = Vector2( 256, 48 )
-texture = ExtResource( 1 )
-patch_margin_left = 20
-patch_margin_top = 20
-patch_margin_right = 20
-patch_margin_bottom = 20
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SpaceBar_Label" type="Label" parent="Dialog_Box/Body_NinePatchRect/SpaceBar_NinePatchRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Press Spacebar"
-align = 1
-valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Dialog_Box/Body_NinePatchRect/SpaceBar_NinePatchRect"]
 autoplay = "PressSpaceBar"
-anims/PressSpaceBar = SubResource( 5 )
+anims/PressSpaceBar = SubResource( 4 )
 
-[node name="SelectChoice_NinePatchRect" type="NinePatchRect" parent="Dialog_Box/Body_NinePatchRect"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -268.0
-margin_top = -37.667
-margin_right = -12.0
-margin_bottom = 10.333
-rect_min_size = Vector2( 256, 48 )
-texture = ExtResource( 1 )
-patch_margin_left = 20
-patch_margin_top = 20
-patch_margin_right = 20
-patch_margin_bottom = 20
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Sprite" type="Sprite" parent="Dialog_Box/Body_NinePatchRect/SpaceBar_NinePatchRect"]
+position = Vector2( 243.331, 48 )
+rotation = 1.5708
+scale = Vector2( 3.96307, 3.96307 )
+texture = ExtResource( 2 )
 
-[node name="SelectChoice_Label" type="Label" parent="Dialog_Box/Body_NinePatchRect/SelectChoice_NinePatchRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -90.0
-margin_right = -90.0
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Select Choice"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Dialog_Box/Body_NinePatchRect/SelectChoice_NinePatchRect"]
-autoplay = "PressSpaceBar"
-anims/PressSpaceBar = SubResource( 6 )
-
-[node name="Option_List" type="VBoxContainer" parent="Dialog_Box/Body_NinePatchRect"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -540.0
-margin_top = -60.0
-margin_bottom = -12.0
+[node name="ChoiceBox" type="PanelContainer" parent="Dialog_Box/Body_NinePatchRect"]
+anchor_top = 0.000753234
+anchor_bottom = 0.000753234
+margin_left = 1245.0
+margin_top = -124.193
+margin_right = 1549.0
+margin_bottom = -14.1928
+grow_horizontal = 0
 grow_vertical = 0
+size_flags_horizontal = 15
+size_flags_vertical = 15
+custom_styles/panel = SubResource( 5 )
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Option" parent="Dialog_Box/Body_NinePatchRect/Option_List" instance=ExtResource( 5 )]
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 540.0
-margin_bottom = 48.0
+[node name="OptionsContainer" type="VBoxContainer" parent="Dialog_Box/Body_NinePatchRect/ChoiceBox"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 284.0
+margin_bottom = 90.0002
+grow_horizontal = 0
+grow_vertical = 0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Option2" parent="Dialog_Box/Body_NinePatchRect/Option_List" instance=ExtResource( 5 )]
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 52.0
-margin_right = 540.0
-margin_bottom = 100.0
+[node name="Label" parent="Dialog_Box/Body_NinePatchRect/ChoiceBox/OptionsContainer" instance=ExtResource( 5 )]
+margin_top = 0.0
+margin_right = 264.0
+margin_bottom = 70.0
+valign = 2
 
-[node name="Option3" parent="Dialog_Box/Body_NinePatchRect/Option_List" instance=ExtResource( 5 )]
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 104.0
-margin_right = 540.0
-margin_bottom = 152.0
+[node name="Cursor" type="Sprite" parent="Dialog_Box/Body_NinePatchRect/ChoiceBox"]
+position = Vector2( 42.8708, 64.4541 )
+scale = Vector2( 4.93138, 4.93138 )
+texture = ExtResource( 2 )
 
 [node name="Character_Texture" type="TextureRect" parent="Dialog_Box/Body_NinePatchRect"]
 margin_left = 200.0
@@ -285,4 +234,9 @@ __meta__ = {
 [node name="Simulated_Registry" type="Node" parent="."]
 script = ExtResource( 4 )
 
-[connection signal="animation_finished" from="Dialog_Box/Body_NinePatchRect/MarginContainer/Body_Label/Body_AnimationPlayer" to="." method="_on_Body_AnimationPlayer_animation_finished"]
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.001
+
+[connection signal="clear_options" from="." to="Dialog_Box/Body_NinePatchRect/ChoiceBox" method="clear_options"]
+[connection signal="next_node" from="." to="Dialog_Box/Body_NinePatchRect/Speaker_NinePatchRect" method="resize"]
+[connection signal="populate_options" from="." to="Dialog_Box/Body_NinePatchRect/ChoiceBox" method="populate_options"]

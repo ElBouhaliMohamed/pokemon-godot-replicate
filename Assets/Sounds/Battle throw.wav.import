@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Battle throw.wav-a4f7569a2986992910ec947c5bfceb81.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Battle throw.wav"
+dest_files=[ "res://.import/Battle throw.wav-a4f7569a2986992910ec947c5bfceb81.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

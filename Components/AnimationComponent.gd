@@ -6,6 +6,8 @@ onready var anim_state = anim_tree.get("parameters/playback")
 onready var walkingSprite = get_owner().get_node("WalkingSprite")
 onready var runningSprite = get_owner().get_node("RunningSprite")
 
+var PlayerStates = Enums.PlayerStates
+
 func _ready():
 	anim_tree.active = true
 
