@@ -17,6 +17,7 @@ var is_moving = false
 var is_running = false
 var can_only_turn = false
 var movement_locked = false setget _set_movement_locked, _get_movement_locked
+var is_in_cutscene = false
 var percent_moved_to_next_tile = 0.0
 
 onready var ray = get_owner().get_node("RayCast2D")
@@ -46,7 +47,7 @@ func _get_movement_locked():
 	return movement_locked
 
 func update(delta):
-	if movement_locked == false || (entity.state.get_state() == PlayerStates.WALKING || entity.state.get_state() == PlayerStates.RUNNING):
+	if movement_locked == false || is_in_cutscene == true || (entity.state.get_state() == PlayerStates.WALKING || entity.state.get_state() == PlayerStates.RUNNING):
 		if entity.state.get_state() == PlayerStates.TURNING:
 			return
 		elif is_moving == false:

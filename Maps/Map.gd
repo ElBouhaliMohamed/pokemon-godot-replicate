@@ -12,10 +12,10 @@ func _setup(params):
 	var entities = Paths.to_entities()
 	var map_events = get_tree().get_nodes_in_group(Groups.MAP_EVENTS)
 	for map_event in map_events:
-		map_event.lock_entities_and_player(entities)
+		ScriptMisc.lock_entities_and_player(entities, player)
 		map_event.run(player, entities)
 		yield(map_event, "finished_event")
-		map_event.unlock_entities_and_player(entities)
+		ScriptMisc.unlock_entities_and_player(entities, player)
 
 func _teardown():
 	if debug:

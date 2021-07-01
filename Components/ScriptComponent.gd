@@ -15,28 +15,8 @@ func update(delta):
 		var event = entity.entity_event
 		if event != null:
 			script_running = true
-			lock_entities_and_player([entity.entity_id])
-			event.run(player, get_entities())
+			ScriptMisc.lock_entities_and_player(Paths.to_entities(), player)
+			event.run(player, Paths.to_entities())
 			yield(event, "finished_event")
-			unlock_entities_and_player([entity.entity_id])
+			ScriptMisc.unlock_entities_and_player(Paths.to_entities(), player)
 			script_running = false
-
-func get_entities():
-	return get_tree().get_nodes_in_group(Groups.ENTITIES)
-
-func lock_entities_and_player(scriptTargets: Array):
-	player.get_component("Movement")._set_movement_locked(true)
-
-	for entity in get_entities():
-		if entity != null:
-			if scriptTargets.find(entity.entity_id) == -1:
-				var entity_movementComponent : MovementComponent = entity.get_component("Movement")
-				entity_movementComponent._set_movement_locked(true)
-
-func unlock_entities_and_player(scriptTargets: Array):
-	player.get_component("Movement")._set_movement_locked(false)
-
-	for entity in get_entities():
-		if scriptTargets.find(entity.entity_id) == -1:
-			var entity_movementComponent : MovementComponent = entity.get_component("Movement")
-			entity_movementComponent._set_movement_locked(false)

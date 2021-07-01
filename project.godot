@@ -119,6 +119,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Components/ScriptComponent.gd"
 }, {
+"base": "Reference",
+"class": "ScriptMisc",
+"language": "GDScript",
+"path": "res://Misc/ScriptMisc.gd"
+}, {
 "base": "Command",
 "class": "TestCmd",
 "language": "GDScript",
@@ -162,6 +167,7 @@ _global_script_class_icons={
 "ResetFlag": "",
 "Run": "",
 "ScriptComponent": "",
+"ScriptMisc": "",
 "TestCmd": "",
 "TriggerFlag": "",
 "Turn": "",
